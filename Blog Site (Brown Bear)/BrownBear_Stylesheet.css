@@ -1,0 +1,29 @@
+p {
+  color: green;
+}
+
+.Bulletpoints {
+    color:black;
+    background-color: lightblue;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+#title {
+  font-family: cursive; 
+  color: brown;
+}
+
+img[src*='image_brownbear']{
+    height: 300px;
+}
+
+video[src*='htmlcss1-vid_brown-bear']{
+    height: 300px;
+}
+
+a:hover{
+    color: red;
+  }
