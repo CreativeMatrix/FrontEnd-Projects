@@ -3,8 +3,7 @@ p {
 }
 
 .Bulletpoints {
-    color:black;
-    background-color: lightblue;
+    color:rgb(252, 252, 252);
 }
 
 .capitalize {
@@ -13,7 +12,7 @@ p {
 
 #title {
   font-family: cursive; 
-  color: brown;
+  color: white;
 }
 
 img[src*='image_brownbear']{
@@ -26,4 +25,20 @@ video[src*='htmlcss1-vid_brown-bear']{
 
 a:hover{
     color: red;
+  }
+
+  body {
+    background: white;
+    background: -webkit-linear-gradient(-45deg, #35577D, #141E30);
+    background: linear-gradient(-45deg, #35577D, #141E30);
+    margin: 0;
+    padding: 0;
+  }
+
+  h3, li {
+    color: white;
+  }
+
+  li a {
+    color: white;
   }
