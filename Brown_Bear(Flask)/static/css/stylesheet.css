@@ -1,0 +1,52 @@
+h3, h2 {
+  color: lightblue
+}
+
+p {
+  color: white;
+}
+
+li {
+  color: white
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+#title {
+  font-family: cursive; 
+  color: lightblue;
+}
+
+img[src*='bear']{
+    height: 300px;
+}
+
+video[src*='htmlcss1-vid_brown-bear']{
+    height: 300px;
+}
+
+a {
+  color: cyan;
+}
+
+a:hover {
+    color: red;
+  }
+
+  body {
+    background-color: gray;
+    background: gray;
+    background: -webkit-linear-gradient(-45deg, #797a7b, #141E30);
+    background: linear-gradient(-45deg, #68696b, #141E30);
+    padding: 0;
+  }
+
+b {
+  color: cyan;
+}
+  
+.form {
+  color: cyan;
+}
