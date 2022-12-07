@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <link href="{{ url_for('static', filename='css/stylesheet.css') }}" rel="Stylesheet">
+    <title>Log In</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="/">Home</a>
+    </nav>
+
+    <h1 style="color:cyan">Sign In</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <h4 style="color:red">{{ message }}</h4>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+      <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
+      <form action="" method="post">
+          {{ form.hidden_tag() }}
+          <p>
+              {{ form.email.label }}<br>
+              {{ form.email(size=32) }}<br>
+              {% for error in form.email.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+          </p>
+          <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+          </p>
+          <p>{{ form.remember() }} {{ form.remember.label }}</p>
+          <p>{{ form.submit() }}</p>
+      </form>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <link href="{{ url_for('static', filename='css/stylesheet.css') }}" rel="Stylesheet">
+    <title>Brown Bears</title>
+  </head>
+  
+  <body>
+    <div class="banner">
+      <a href="./">Home</a>
+      <a class='aboutme' href="./aboutme">About Me</a>
+      {% if current_user.is_authenticated %}
+      <a href="{{ url_for('user') }}">Dashboard</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+      {% else %}
+        <a href="./login">Log In</a>
+      {% endif %}
+        <h1 id="title">The Brown Bear</h1>
+    </div>
+    
+    <div id="Introduction">
+      <h3 class="Bulletpoints capitalize">General Description</h3>
+      <p>The brown bear (<em>Ursus arctos</em>) and grizzly bears are classified as the same species even though there are notable differences between them. Kodiak bears (brown bears from the Kodiak Archipelago) are classified as a distinct subspecies (U. a. middendorffi) from those on the mainland (U. a. horribilis) because they have been isolated from other bears since the last ice age about 12,000 years ago. “Brown bears” typically live along the southern coast of the state where they have access to seasonally abundant spawning salmon. The coastal areas also provide a rich array of vegetation they can use as food as well as a milder climate. This allows them to grow larger and live in higher densities than their “grizzly” cousins in the northern and interior parts of the state. To minimize confusion, this report uses the term “brown bear” to refer to all members of Ursus arctos.<br>
+      
+      The brown bear resembles its close relatives the black bear (U. americanus) and the polar bear (U. maritimus). Brown bears are usually larger than black bears, have a more prominent shoulder hump, less prominent ears, and longer, straighter claws. Polar bears are similar in size to coastal brown bears, but are more streamlined, lacking the hump. The varying shapes of these bears are adaptations to their particular life styles. Long claws are useful in digging roots or excavating small mammals, but are not efficient for climbing trees. The musculature and bone structure of the hump are adaptations for digging and for attaining bursts of speed necessary for capture of moose or caribou. Color is not a reliable key in differentiating these bears because black and brown bears have many color phases and polar bears may have stained fur. For example, black bear fur may be black, brown, reddish or even shades of grey and white, while brown bear colors range from dark brown through very light blond</p>
+
+      <h3>Life as a Bear</h3>
+      <p>Cubs are born in the den during January and February. Twins are most common, but litter sizes can range from 1 to 4. When the cubs emerge in June, they may weigh up to 15 lbs (7 kg) and they actively explore their world under the constant supervision of their mothers. Mothers can be furiously protective of cubs, however less than half of the cubs survive. Families typically stay together for 2 or 3 years and after separation female cubs tend to stay near where they were raised while males go farther afield. Most brown bears are sexually mature at 5 years old; however females often do not successfully produce a litter until later. The mating season is in the spring (May to July) and they are serial monogamous (have one mate at a time, but several each year). The oldest brown bear in Alaska was a 39 year old female, while the oldest male was 38.<br>
+
+      In the winter when food is unavailable or scarce, most brown bears enter dens and sleep through the winter. Although this is not true hibernation, their body temperatures, heart rate, and other metabolic rates are drastically reduced. While in the den they do not eat, drink, urinate or defecate. Pregnant females are usually the first to enter dens in the fall. These females, with their newborn cubs, are the last to exit dens. Adult males, on the other hand, enter dens later and emerge earlier than most other bears. In northern areas, bears may spend up to 8 months in dens, while in areas with relatively mild winters, such as Kodiak, some male bears stay active all winter.<br>
+        
+      Brown bears have an exceptionally acute sense of smell, exceeding that of dogs. Contrary to popular belief, bears are not nearsighted. Their eyesight and hearing are comparable to humans. They can run in short bursts up to 40 mph (64 kph) and are excellent swimmers. By all indications, bears are extremely intelligent and most have individual personalities.</p>
+
+      <h3>Range and Habitat</h3>
+      <p>Brown bears (Ursus arctos), also known as grizzlies, occur throughout Alaska except on islands south of Frederick Sound in southeast Alaska, west of Unimak in the Aleutian Chain, and Bering Sea islands. They also occur in Russia, northern China, northern Japan, Europe, western Canada, and in limited portions of the northwestern United States.</p>
+      <h3>Seasonal Distribution</h3>
+      <ul>
+        <li><b>Spring:</b> In spring, black and brown bears are usually found on low elevation south-facing slopes, and in riparian forests and wetlands for early green vegetation and moose.</li>
+        <li><b>Summer:</b> During summer, brown and black bears are most commonly found in mid-elevation herbaceous habitats, in low elevation river bottoms and fluvial benches for early berries, and in high elevation burns and openings for berries. In some areas they also focus on anadromous waters for salmon.</li>
+        <li><b>Fall:</b> In fall, brown and black bears are most commonly found on large rivers for salmon and associated riparian forest areas for roots, late berries and fruits. In the Interior, bears focus on alpine and subalpine berry patches.</li>
+        <li><b>Winter:</b> In winter, most brown bears are in hibernation dens in alpine and sub-alpine areas; most black bears are in dens in forests. (extinct)</li>
+      </ul>
+      <a href="https://en.wikipedia.org/wiki/Brown_bear" target="_blank">Learn More</a>
+    </div>
+    <div id="media">
+      <h2 class="Bulletpoints capitalize">media</h2>
+      <a href="https://en.wikipedia.org/wiki/Brown_bear" target="_blank"><img src="{{ url_for('static', filename='images/bear.jpg') }}" alt="A Brown Bear"/></a>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Pmk9ok7UxWM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <form action="/" method="POST">
+      <h3>More Insight?</h3>
+      <p>Please let me know if I missed any info on the Brown Bear in the Recommendations box below. </p>
+      <p>
+        {{ template_form.hidden_tag() }}
+        <div class='form'>{{ template_form.comment.label }}
+        {{ template_form.comment() }}
+        {{ template_form.submit() }}
+        </div>  
+      </p>
+    </form>
+    <h3>Comments</h3>
+    <ul>{% for comment in template_comments %}
+      <li>{{ comment.comment_text }}</li>
+        {% endfor %}
+    </ul>
+  </body>
+</html>
