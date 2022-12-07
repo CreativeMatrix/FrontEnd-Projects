@@ -9,8 +9,14 @@
   <body>
     <div class="banner">
       <a href="./">Brown Bear</a>
-      <a href="./aboutme">About Me</a>
-      <h1 id="title">The Brown Bear</h1>
+      <a class='aboutme' href="./aboutme">About Me</a>
+      {% if current_user.is_authenticated %}
+      <a href="{{ url_for('user') }}">Dashboard</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+      {% else %}
+        <a href="./login">Log In</a>
+      {% endif %}
+        <h1 id="title">The Brown Bear</h1>
     </div>
     
     <div id="Introduction">
@@ -40,7 +46,7 @@
     <div id="media">
       <h2 class="Bulletpoints capitalize">media</h2>
       <a href="https://en.wikipedia.org/wiki/Brown_bear" target="_blank"><img src="{{ url_for('static', filename='images/bear.jpg') }}" alt="A Brown Bear"/></a>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/2XlzIzwGksE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Pmk9ok7UxWM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <form action="/" method="POST">
       <h3>More Insight?</h3>
@@ -55,7 +61,7 @@
     </form>
     <h3>Comments</h3>
     <ul>{% for comment in template_comments %}
-      <li>{{ comment }}</li>
+      <li>{{ comment.comment_text }}</li>
         {% endfor %}
     </ul>
   </body>
